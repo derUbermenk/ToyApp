@@ -8,6 +8,10 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
+    # i figured that I should use includes here since
+    # ... I will be using a partial from post with no 
+    # ... access to @user variable
+    @microposts = @user.microposts.includes(:user)
   end
 
   # GET /users/new
