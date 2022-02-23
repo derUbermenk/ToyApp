@@ -1,11 +1,18 @@
-<div class="post-card">
+<br>
+<div class="post-card" style="background-color: lightgray">
   <div class="post-author">
-    <p class="name"> <%= post.user.name %> </p>
-    <p class="email"> <small> <%= post.user.email %> </small> </p>
+    <section class="name"> <%= micropost.user.name %> </section>
+    <section class="email"> <small> <%= link_to micropost.user.email, micropost %> </small> </section>
+    <br>
   </div>
 
   <div class="content">
-    <%= post.content %>
+    <%= micropost.content %>
   </div>
 
+  <div class="micropost-interaction">
+    <%= link_to 'Show', micropost %>
+    <%= link_to 'Edit', edit_micropost_path(micropost) %>
+    <%= link_to 'Delete', micropost, method: :delete, data: { confirm: 'Are you sure' } %>
+  </div>
 </div>
