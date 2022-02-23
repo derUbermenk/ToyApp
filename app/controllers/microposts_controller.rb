@@ -3,7 +3,8 @@ class MicropostsController < ApplicationController
 
   # GET /microposts or /microposts.json
   def index
-    @microposts = Micropost.all
+    # since included user to avoid n+1
+    @microposts = Micropost.all.includes(:user)
   end
 
   # GET /microposts/1 or /microposts/1.json
